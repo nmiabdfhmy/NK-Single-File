@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardButton
 
 
 def start_button(client):
-    if not FORCE_SUB_CHANNEL and not FORCE_SUB_GROUP and not FORCE_SUB_CHANNEL_2:
+    if not FORCE_SUB_CHANNEL:
         buttons = [
             [
                 InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
@@ -15,26 +15,21 @@ def start_button(client):
             ],
         ]
         return buttons
-    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL_2 and FORCE_SUB_GROUP:
+    if FORCE_SUB_CHANNEL:
         buttons = [
+            [InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink)],
             [
+                InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close"),
                 InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
             ],
-            [
-                InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
-            ],
-            [InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close")],
         ]
         return buttons
 
 
 def fsub_button(client, message):
-    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL_2 and FORCE_SUB_GROUP:
+    if FORCE_SUB_CHANNEL:
         buttons = [
-            [
-                InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
-
-            ],
+            [InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink)],
         ]
         try:
             buttons.append(
